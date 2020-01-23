@@ -10,6 +10,7 @@ class PlanetarySystem {
   PlanetarySystem({this.name = 'Unnamed System', this.planets = const[] }); // brackets [] make parameter optional; braces {} lets you do "named" parameters
 
   int get numberOfPlanets => planets.length;
+  bool get hasPlanets => planets.isNotEmpty;
   
 
 }
