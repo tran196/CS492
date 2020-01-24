@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:math';
 import 'planet.dart';
 
@@ -11,6 +12,15 @@ class PlanetarySystem {
   // PlanetarySystem.withName(this.name);
 
   PlanetarySystem({this.name = 'Unnamed System', this.planets = const[] }); // brackets [] make parameter optional; braces {} lets you do "named" parameters
+
+//
+  static PlanetarySystem fromMap(Map<String,dynamic> jsonMap) {
+    return PlanetarySystem(
+      name: jsonMap['name'],
+      planets: Planet.fromMaps(jsonMap['planets'])
+    );
+  }
+//
 
   int get numberOfPlanets => planets.length;
   bool get hasPlanets => planets.isNotEmpty;
