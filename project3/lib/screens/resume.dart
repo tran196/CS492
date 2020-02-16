@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Resume extends StatelessWidget {
   @override
@@ -11,19 +12,19 @@ class Resume extends StatelessWidget {
             child: Center(
               child: Column(
                 children: <Widget>[
-                  resumeNameEmailGithub(),
+                  resumeNameEmailGithub("Tuan Tran", "trant6@oregonstate.edu", "https://github.com/flutter"),
                   Padding(padding: EdgeInsets.all(padding(context))),
-                  resumeFiller(context),
+                  resumeFiller(context, "Software Developer Intern", "E Corp", "2016 - Present", "Springfield, OR"),
                   Padding(padding: EdgeInsets.all(padding(context))),
-                  resumeFiller(context),
+                  resumeFiller(context, "Software Developer Intern", "E Corp", "2016 - Present", "Springfield, OR"),
                   Padding(padding: EdgeInsets.all(padding(context))),
-                  resumeFiller(context),
+                  resumeFiller(context, "Software Developer Intern", "E Corp", "2016 - Present", "Springfield, OR"),
                   Padding(padding: EdgeInsets.all(padding(context))),
-                  resumeFiller(context),
+                  resumeFiller(context, "Software Developer Intern", "E Corp", "2016 - Present", "Springfield, OR"),
                   Padding(padding: EdgeInsets.all(padding(context))),
-                  resumeFiller(context),
+                  resumeFiller(context, "Software Developer Intern", "E Corp", "2016 - Present", "Springfield, OR"),
                   Padding(padding: EdgeInsets.all(padding(context))),
-                  resumeFiller(context),
+                  resumeFiller(context, "Software Developer Intern", "E Corp", "2016 - Present", "Springfield, OR"),
                 ]
               )
             ),
@@ -33,16 +34,16 @@ class Resume extends StatelessWidget {
     }
 
 
-    Widget resumeNameEmailGithub() {
+    Widget resumeNameEmailGithub(String name, String email, String githubURL) {
       return Row(
         children: <Widget>[
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-                        Text("Jane Smith", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0)),
-                        Text("jsmith@example.com",), 
-                        Text("https://github.com/jsmith")
+                        Text("$name", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0, ) ),
+                        Text("$email", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0)), 
+                        Text("$githubURL", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0))
                       ],
                     )
         ],
@@ -50,7 +51,7 @@ class Resume extends StatelessWidget {
     }
 
 
-    Widget resumeFiller(BuildContext context){
+    Widget resumeFiller(BuildContext context, String title, String corp, String date, String location ){
       return Row(
         mainAxisAlignment: MainAxisAlignment.start,
         // crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,8 +60,8 @@ class Resume extends StatelessWidget {
                       child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-              resumeJobTitle(),
-              resumeDateLocation(context), 
+              resumeJobTitle(title),
+              resumeDateLocation(corp, date, location), 
               Container(child: resumeJobDescription()),
               ],
             ),
@@ -71,20 +72,20 @@ class Resume extends StatelessWidget {
 
     
 
-    Widget resumeJobTitle()
+    Widget resumeJobTitle(String title)
     {
       return Row(children: <Widget>[
-        Text("Software Developer Intern", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0)),
+        Text("$title", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0)),
       ],);
     }
 
-    Widget resumeDateLocation(BuildContext context) {
+    Widget resumeDateLocation(String corp, String dates, String location) {
       return Row( 
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-        Text("E Corp!!!"),
-        Text("2016 - Present"),
-        Text("Springfield, OR"),
+        Text("$corp", style: TextStyle(fontStyle: FontStyle.italic, fontSize: 14.0)),
+        Text("$dates", style: TextStyle(fontStyle: FontStyle.italic, fontSize: 14.0)),
+        Text("$location", style: TextStyle(fontStyle: FontStyle.italic, fontSize: 14.0)),
       ],);
     }
 

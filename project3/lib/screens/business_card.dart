@@ -13,12 +13,12 @@ class BusinessCard extends StatelessWidget {
             children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[SizedBox(width:50, height:50, child: Placeholder()),]
+                children: <Widget>[SizedBox(width:70, height:70, child: Image.asset("assets/images/tuan_tran_picture.jpeg")),]
               ),
               businessCardText("Tuan Tran"),
               businessCardText("Flutter Developer"),
               businessCardPhoneNumber("555-555-5555"),
-              businessCardGithubEmail('https://github.com/flutter', 'jsmith@example.com'),
+              businessCardGithubEmail('https://github.com/flutter', 'trant6@oregonstate.edu'),
               
             ],
           ),
@@ -38,7 +38,11 @@ class BusinessCard extends StatelessWidget {
   Widget businessCardText(String name) {
     return Row( 
       mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[Text("$name")],);
+      children: <Widget>[
+        Text(
+          "$name", 
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0,),)
+      ],);
   }
 
   Widget businessCardPhoneNumber(String phoneNumber) {
@@ -46,7 +50,7 @@ class BusinessCard extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         FlatButton(onPressed:() {launch('sms:$phoneNumber');},
-          child: Text("$phoneNumber")),]
+          child: Text("$phoneNumber", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0,))),]
     );
   }
 
@@ -58,8 +62,8 @@ class BusinessCard extends StatelessWidget {
           launch('$githubURL');
           // _launchURL();
         },
-          child: Text("$githubURL")),
-        Text("$email")
+          child: Text("$githubURL", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0,))),
+        Text("$email", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0,))
         ]
     );
   }
