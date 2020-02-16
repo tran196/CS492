@@ -4,27 +4,29 @@ import 'package:flutter/rendering.dart';
 class Resume extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-      return Container(
-        padding: EdgeInsets.all(padding(context)),
-        child: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              children: <Widget>[
-                resumeNameEmailGithub(),
-                Padding(padding: EdgeInsets.all(padding(context))),
-                resumeFiller(context),
-                Padding(padding: EdgeInsets.all(padding(context))),
-                resumeFiller(context),
-                Padding(padding: EdgeInsets.all(padding(context))),
-                resumeFiller(context),
-                Padding(padding: EdgeInsets.all(padding(context))),
-                resumeFiller(context),
-                Padding(padding: EdgeInsets.all(padding(context))),
-                resumeFiller(context),
-                Padding(padding: EdgeInsets.all(padding(context))),
-                resumeFiller(context),
-              ]
-            )
+      return SafeArea(
+              child: Container(
+          padding: EdgeInsets.all(padding(context)),
+          child: SingleChildScrollView(
+            child: Center(
+              child: Column(
+                children: <Widget>[
+                  resumeNameEmailGithub(),
+                  Padding(padding: EdgeInsets.all(padding(context))),
+                  resumeFiller(context),
+                  Padding(padding: EdgeInsets.all(padding(context))),
+                  resumeFiller(context),
+                  Padding(padding: EdgeInsets.all(padding(context))),
+                  resumeFiller(context),
+                  Padding(padding: EdgeInsets.all(padding(context))),
+                  resumeFiller(context),
+                  Padding(padding: EdgeInsets.all(padding(context))),
+                  resumeFiller(context),
+                  Padding(padding: EdgeInsets.all(padding(context))),
+                  resumeFiller(context),
+                ]
+              )
+            ),
           ),
         ),
       );
@@ -53,13 +55,15 @@ class Resume extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         // crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-            resumeJobTitle(),
-            resumeDateLocation(context), 
-            resumeJobDescription(),
-            ],
+          Flexible(
+                      child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+              resumeJobTitle(),
+              resumeDateLocation(context), 
+              Container(child: resumeJobDescription()),
+              ],
+            ),
           ),
         ]
       );
@@ -76,22 +80,19 @@ class Resume extends StatelessWidget {
 
     Widget resumeDateLocation(BuildContext context) {
       return Row( 
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
         Text("E Corp!!!"),
-        Padding(padding: EdgeInsets.all(10.0)),
         Text("2016 - Present"),
-        Padding(padding: EdgeInsets.all(10.0)),
         Text("Springfield, OR"),
       ],);
     }
 
     Widget resumeJobDescription() {
-      return Row(
-        children: <Widget>[
-          Text("Blah Blah"),
-        ],
+      return Wrap( 
+        children: <Widget>[ 
+          Text("Lorem ipsum dolor sit amet, mea in putant conceptam moderatius. Meliore salutatus ut eam. Omnes graeci quo no, dicit molestiae necessitatibus cu quo. Abhorreant elaboraret id mea, no discere definiebas intellegam pro. Nonumes eligendi appareat nec ne. Eum postea ullamcorper ex.",
+          softWrap: true,),],
       );
     }
 

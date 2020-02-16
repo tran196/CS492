@@ -10,7 +10,7 @@ class MainTabController extends StatelessWidget {
 
   static const tabs = [
     Tab(icon: Icon(Icons.people)),  // Business Card
-    Tab(icon: Icon(Icons.pageview)),  // Resume
+    Tab(icon: Icon(Icons.palette)),  // Resume
     Tab(icon: Icon(Icons.query_builder)), // Eight Ball
   ];
 
